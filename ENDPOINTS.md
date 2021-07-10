@@ -14,19 +14,19 @@ There is no Homework object per se. Rather, its composed of multiple objects.
 
 ### /assignments
 - Methods: get, post, patch, delete (may not be available for all users)
-- Permissions: Authenticated.  Staff can do anything. Read only for Students.
+- Permissions: Authenticated.  Staff can do anything. Read only for Students (thier own).
 - Description: Staff can create assignments. Students can view assignments.
 - filters: {'name': ['exact'], 'submissions': ['isnull'], 'submissions__grade': ['isnull']}
 
 ### /submissions
 - Methods: get, post, patch, delete (may not be available for all users)
 - Permissions: Authenticated.  Is owner or staff. Students can create and edit only their own submissions.
-- Description: Students create their submission for a given assignment.
+- Description: Students create their submission for a given assignment. Staff has access but they shouldn't do any writes.
 - filters: {'grade': ['exact', 'isnull'], 'grade__final_grade': ['exact'], 'assignment__name': ['exact'],
                      'created': ['gte', 'lte', 'exact']}
                      
 ### /grades
 - Methods: get, post, patch, delete (may not be available for all users)
-- Permissions: Authenticated. Staff can do anything. Read only for Students.
+- Permissions: Authenticated. Staff can do anything. Read only for Students (their own).
 - Description: Staff can create grades for a given submission. Students only view their own grades.
 - filters: ('final_grade', 'submission__assignment__name', )     

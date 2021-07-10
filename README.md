@@ -8,6 +8,8 @@ Homework submission sample project implemented in Django Rest framework.
 ### Assumptions
 - django `is_staff` user field is used to distinguish teachers v. students.
 - django Group object is used as "classes" where students belong.
+- We can "trust" teachers but not students.
+- "Submitting" a homework for a student means that they create a submission object for an assignment with a link to the actual homework (for example a google doc).
 - Refer to API docs for more details.
  
 
@@ -24,5 +26,6 @@ Homework submission sample project implemented in Django Rest framework.
 - more documentation.
 - more robust filtering.
 - tailor API to frontend requirements.
-- have restrictions (students should submit 1 submission/assignment). 
+- have restrictions (students should submit 1 submission/assignment).
+- store/manage the homework doc on S3.
 
